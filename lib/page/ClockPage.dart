@@ -73,6 +73,7 @@ class _ClockPageState extends State<ClockPage> {
                   Form(
                     key: _formKey,
                     child: TextFormField(
+                      autofocus: true,
                       keyboardType: TextInputType.phone,
                       style: Theme.of(context).textTheme.headline3,
                       decoration: InputDecoration(
@@ -90,15 +91,16 @@ class _ClockPageState extends State<ClockPage> {
                   SizedBox(
                     height: 50,
                   ),
-                  RaisedButton(
-                    color: Theme.of(context).primaryColor,
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "ENTRAR",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline3
-                          .apply(color: Colors.white, fontWeightDelta: 2),
+                  ElevatedButton(
+                    child: Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Text(
+                        "ENTRAR",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline3
+                            .apply(color: Colors.white, fontWeightDelta: 2),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -109,6 +111,25 @@ class _ClockPageState extends State<ClockPage> {
                       );
                     },
                   ),
+                  // RaisedButton(
+                  //   color: Theme.of(context).primaryColor,
+                  //   padding: EdgeInsets.all(15),
+                  //   child: Text(
+                  //     "ENTRAR",
+                  //     style: Theme.of(context)
+                  //         .textTheme
+                  //         .headline3
+                  //         .apply(color: Colors.white, fontWeightDelta: 2),
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => RecordPage(),
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
                 ],
               )
             ],

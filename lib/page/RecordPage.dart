@@ -253,6 +253,7 @@ class _RecordPageState extends State<RecordPage> {
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
+                //ignore: deprecated_member_use
                 RaisedButton(
                   color: Colors.red,
                   padding: EdgeInsets.all(15),
@@ -267,6 +268,7 @@ class _RecordPageState extends State<RecordPage> {
                     Navigator.pop(context);
                   },
                 ),
+                // ignore: deprecated_member_use
                 RaisedButton(
                   color: Theme.of(context).primaryColor,
                   padding: EdgeInsets.all(15),
