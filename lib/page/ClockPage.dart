@@ -51,91 +51,72 @@ class _ClockPageState extends State<ClockPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "CONTABLE - Controle de Presença",
-          style: Theme.of(context)
-              .textTheme
-              .headline4
-              .apply(color: Colors.white, fontWeightDelta: 2),
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              buildClock(),
-              Column(
-                children: [
-                  Form(
-                    key: _formKey,
-                    child: TextFormField(
-                      autofocus: true,
-                      keyboardType: TextInputType.phone,
-                      style: Theme.of(context).textTheme.headline3,
-                      decoration: InputDecoration(
-                        labelText: "Matrícula",
-                        contentPadding: EdgeInsets.all(25),
-                        labelStyle: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize:
-                              Theme.of(context).textTheme.headline3.fontSize,
-                        ),
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+      appBar: getAppBar(),
+      body: getBody(),
+    );
+  }
+
+  Widget getBody() {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            buildClock(),
+            Form(
+              key: _formKey,
+              child: TextFormField(
+                autofocus: true,
+                keyboardType: TextInputType.phone,
+                style: Theme.of(context).textTheme.headline3,
+                decoration: InputDecoration(
+                  labelText: "Matrícula",
+                  contentPadding: EdgeInsets.all(25),
+                  labelStyle: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: Theme.of(context).textTheme.headline3.fontSize,
                   ),
-                  SizedBox(
-                    height: 50,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              child: Padding(
+                padding: EdgeInsets.all(15),
+                child: Text(
+                  "ENTRAR",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline3
+                      .apply(color: Colors.white, fontWeightDelta: 2),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RecordPage(),
                   ),
-                  ElevatedButton(
-                    child: Padding(
-                      padding: EdgeInsets.all(15),
-                      child: Text(
-                        "ENTRAR",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline3
-                            .apply(color: Colors.white, fontWeightDelta: 2),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RecordPage(),
-                        ),
-                      );
-                    },
-                  ),
-                  // RaisedButton(
-                  //   color: Theme.of(context).primaryColor,
-                  //   padding: EdgeInsets.all(15),
-                  //   child: Text(
-                  //     "ENTRAR",
-                  //     style: Theme.of(context)
-                  //         .textTheme
-                  //         .headline3
-                  //         .apply(color: Colors.white, fontWeightDelta: 2),
-                  //   ),
-                  //   onPressed: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => RecordPage(),
-                  //       ),
-                  //     );
-                  //   },
-                  // ),
-                ],
-              )
-            ],
-          ),
+                );
+              },
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget getAppBar() {
+    return AppBar(
+      title: Text(
+        "CONTABLE - Controle de Presença",
+        style: Theme.of(context)
+            .textTheme
+            .headline4
+            .apply(color: Colors.white, fontWeightDelta: 2),
+      ),
+      centerTitle: true,
     );
   }
 
